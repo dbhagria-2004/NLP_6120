@@ -1,10 +1,6 @@
-## Questions for TA
-# Should they be named as the are
-# seperate files to work on for every part
-# undrstand part 2 in more detail
-
 from collections import defaultdict
 import yaml
+import re
 """
 Function to read the file path
 """
@@ -22,7 +18,7 @@ def parse(file):
     for f in file:
         line = f.strip()
 
-        if line.startswith(">"):
+        if re.match(r"^>", line):
             if header:
                 seq_dict[header] = sequence
 
@@ -67,11 +63,11 @@ Function to iterate te sequence dict, check the type and print for part1
 def filterAndPrint(seq_dict):
     for k, v in seq_dict.items():
         sequence = v.upper()
-        type = getType(sequence)
+        seq_type = getType(sequence)
 
         print(k)
         print(sequence)
-        print("Type:", type)
+        print("Type:", seq_type)
         print()
 
 
@@ -90,18 +86,18 @@ def findORF(sequence):
     list_of_orf = []
     sequence = sequence.upper()
 
-    type = getType(sequence)
-    if type == "DNA":
+    seq_type = getType(sequence)
+    if seq_type == "DNA":
         start_codon  = "ATG"
         end_codons = ["TAA", "TAG", "TGA"]
-    elif type == "RNA":
+    elif seq_type == "RNA":
         start_codon  = "AUG"
         end_codons = ['UAA', 'UAG', 'UGA' ]
 
     else:
         return []
 
-    for i in range(0, len(sequence)-2):
+    for i in range(0, len(sequence)-2, 3):
         codon = sequence[i:i+3]
 
         if codon == start_codon:
@@ -165,7 +161,7 @@ def countFreq(sequence):
     count = {"A": 0,
              "C": 0,
              "G": 0,
-             "ambigious":0}
+             "ambiguous":0}
 
     ## instead of hardcoding T or U, we check if it is a DNA or RNA, and then we append only the relevent one
     dna_or_rna = "T" if seq_type == "DNA" else "U"
@@ -175,7 +171,7 @@ def countFreq(sequence):
         if c in count:
             count[c] +=1
         else:
-            count["ambigious"] +=1
+            count["ambiguous"] +=1
 
     return count
 
@@ -218,16 +214,14 @@ def printNucleotideAndSummary(seq_dict):
 
 
 
-
-
-
 def main():
     ## instead of hardcoding the paths, you load the file from a config file
-    # with open("config.yaml", "r") as config_file:
-    #     config = yaml.safe_load(config_file)
-    # part1_fasta_path = config["part1_fasta_path"]
+    with open("config.yaml", "r") as config_file:
+        config = yaml.safe_load(config_file)
+
+    part1_fasta_path = config["part1_fasta_path"]
     
-    file1 = read(r"C:\Users\dbhagria\Documents\MY_PERSONAL_GITHUB\NLP_6120\Assignements\A1\test_files-2\test_part1_in.fasta")
+    file1 = read(part1_fasta_path)
 
     seq_dict_p1 = parse(file1)
 
@@ -238,21 +232,24 @@ def main():
     print("--------------------Solution to part 2------------------------------------")
 
     # part2_fasta_path = config["part2_fasta_path"]
-    file2 = read(r"C:\Users\dbhagria\Documents\MY_PERSONAL_GITHUB\NLP_6120\Assignements\A1\test_files-2\test_part2_in.fasta")
+    part2_fasta_path = config["part2_fasta_path"]
+    
+    file2 = read(part2_fasta_path)
+    # file2 = read(r"/Users/deepanshu/Documents/NLP_6120/Assignements/A1/test_files-2/test_part2_in.fasta")
 
     seq_dict_p2 = parse(file2)
+
     printORFs(seq_dict_p2)
     
     print("--------------------Solution to part 3------------------------------------")
-    file3 = read(r"C:\Users\dbhagria\Documents\MY_PERSONAL_GITHUB\NLP_6120\Assignements\A1\test_files-2\test_part3_in.fasta")
-
+    # file3 = read(r"/Users/deepanshu/Documents/NLP_6120/Assignements/A1/test_files-2/test_part3_in.fasta")
+    part3_fasta_path = config["part3_fasta_path"]
+    
+    file3 = read(part3_fasta_path)
     seq_dict_p3 = parse(file3)
 
     printNucleotideAndSummary(seq_dict_p3)
 
-
-
-        
 if __name__ == "__main__":
     main()
 
