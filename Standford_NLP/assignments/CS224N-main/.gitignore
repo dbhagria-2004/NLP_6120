@@ -1,0 +1,52 @@
+# Python
+__pycache__
+.ipynb_checkpoints
+
+# Assignment 1 generated
+assignment1/code/.ipynb_checkpoints
+
+# Assignment 2 generated
+assignment2/code/utils/__pycache__
+assignment2/code/__pycache__
+assignment2/code/.DS_Store
+assignment2/code/.ipynb_checkpoints
+assignment2/code/assignment2.zip
+assignment2/code/utils/datasets
+assignment2/code/saved_params*
+assignment2/code/saved_state*
+assignment2/code/word_vectors.png
+
+# Assignment 3 generated
+assignment3/code/results
+assignment3/code/assignment3.zip
+
+# Assignment 4 generated
+assignment4/code/src.model
+assignment4/code/src.vocab
+assignment4/code/tgt.model
+assignment4/code/tgt.vocab
+assignment4/code/vocab.json
+assignment4/code/model.bin
+assignment4/code/model.bin.optim
+assignment4/code/runs
+assignment4/code/outputs/test_outputs.txt
+assignment4/code/assignment4.zip
+
+# Assignment 5 generated
+assignment5/code/vanilla.model.params
+assignment5/code/vanilla.nopretrain.dev.predictions
+assignment5/code/vanilla.nopretrain.test.predictions
+assignment5/code/vanilla.pretrain.params
+assignment5/code/vanilla.finetune.params
+assignment5/code/vanilla.pretrain.dev.predictions
+assignment5/code/vanilla.pretrain.test.predictions
+assignment5/code/synthesizer.pretrain.params
+assignment5/code/synthesizer.finetune.params
+assignment5/code/synthesizer.pretrain.dev.predictions
+assignment5/code/synthesizer.pretrain.test.predictions
+assignment5/code/assignment5_submission.zip
+assignment5/.ipynb_checkpoints
+
+# Project minBERT generated
+project/minbert-default-final-project-main/__pycache__
+project/minbert-default-final-project-main/cs224n_default_final_project_submission.zip
