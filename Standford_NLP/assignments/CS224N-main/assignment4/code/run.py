@@ -281,7 +281,6 @@ def train(args: Dict):
                     print('reached maximum number of epochs!', file=sys.stderr)
                     exit(0)
 
-
 def decode(args: Dict[str, str]):
     """ Performs decoding on a test set, and save the best-scoring decoding results.
     If the target gold-standard sentences are given, the function also computes

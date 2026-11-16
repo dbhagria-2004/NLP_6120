@@ -1,3 +1,11 @@
 /Users/deepanshu/Documents/NLP_6120/NLP Book.pdf
 
 /Users/deepanshu/Documents/NLP_6120/Assignements/A3/archive
+
+*.zip
+*.pt
+
+*.txt
+/Users/deepanshu/Documents/NLP_6120/Assignements/A5/en_US.twitter.txt
+
+/Users/deepanshu/Documents/NLP_6120/Standford_NLP/assignments/CS224N-main/assignment4/model.pt
